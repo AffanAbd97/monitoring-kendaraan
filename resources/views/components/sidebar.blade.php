@@ -27,37 +27,21 @@
                     <span class="ml-3">Overview</span>
                 </a>
             </li>
-            @if (session('authenticate') && session('authenticate')->peran == 'Admin')
+     @foreach ($menuItems as $item)
 <li>
-                    <a href="{{ route('dokter.index') }}"
-                        class=" {{ menuActive(['dokter.index', 'dokter.tambah', 'dokter.edit']) }} flex items-center justify-between p-2 text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
+        <a href="{{ $item['url'] }}"
+            class=" {{ menuActive( $item['active']) }} flex items-center justify-between p-2 text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
 
-                        <div class="flex items-center justify-start">
-                            <i
-                                class="fa-solid fa-user-nurse text-2xl text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "></i>
-                            <span class="ml-3">Dokter</span>
-                        </div>
-                        <span
-                            class="bg-yellow-100 text-yellow-800 text-sm font-medium   px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Admin</span>
-                    </a>
-                </li>
-@elseif (session('authenticate') && session('authenticate')->peran == 'Dokter')
-<li>
-                    <a href="{{ route('dokter.periksa') }}"
-                        class=" {{ menuActive(['dokter.periksa']) }} flex items-center p-2 justify-between text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
-                        <div class="flex items-center justify-start">
-                            <i
-                                class="fa-solid  fa-stethoscope text-2xl text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "></i>
-
-                            <span class="ml-3">Periksa Pasien</span>
-                        </div>
-                        <span
-                            class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Dokter</span>
-
-                    </a>
-                    
-                </li>
-@endif
+            <div class="flex items-center justify-start">
+                <i
+                    class="fa-solid fa-user-nurse text-2xl text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "></i>
+                <span class="ml-3">{{$item['label']}}</span>
+            </div>
+            <span
+                class=" {{ $color }} text-sm font-medium   px-2.5 py-0.5 rounded ">{{$role}}</span>
+        </a>
+    </li>
+@endforeach
 
         </ul>
 

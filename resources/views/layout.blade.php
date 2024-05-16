@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @notifyCss
+    {{-- @notifyCss --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @stack('title')
     @stack('style')
@@ -42,7 +42,7 @@
     @stack('script')
 
 
-    @notifyJs
+    {{-- @notifyJs --}}
 
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');

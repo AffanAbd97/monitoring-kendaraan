@@ -42,7 +42,7 @@
     @stack('script')
 
 
-    @notifyJs
+    {{-- @notifyJs --}}
 
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
