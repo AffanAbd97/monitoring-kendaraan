@@ -3,9 +3,9 @@
     <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
         <h1
             class="text-xl text-center   font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Login 
+            Login
         </h1>
-        <form class="space-y-4 md:space-y-6" action="" method="POST">
+        <form class="space-y-4 md:space-y-6" action="{{ route('login.post') }}" method="POST">
             @csrf
 
 
@@ -36,7 +36,7 @@
             <button type="submit"
                 class="w-full text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Sign
                 in</button>
-         
+
             </p>
         </form>
     </div>

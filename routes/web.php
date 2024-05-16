@@ -1,15 +1,24 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    dd(Auth::user());
     return view('pages.home');
-});
+})->name('home');
 
+Route::prefix('dashboard')->middleware(['auth', 'role:Super Admin,Admin'])->group(function () {
+
+    Route::get('/driver', function () {
+        return view('pages.driver.index');
+    });
+});
 Route::get('/dashboard', function () {
+
     return view('pages.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
