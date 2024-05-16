@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('drivers', function (Blueprint $table) {
             $table->uuid('id')->primary()->unique();
             $table->string('nama_driver');
-            $table->enum('status_driver',['Assinged','Not Assigned']);
-            $table->string('penempatan');
+            $table->enum('status_driver', ['Assinged', 'Not Assigned']);
+            $table->enum('penempatan', ['cabang', 'utama']);
             $table->timestamps();
             $table->softDeletes();
         });

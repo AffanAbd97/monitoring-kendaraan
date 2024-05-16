@@ -20,13 +20,19 @@ class Sidebar extends Component
         $menus = [
             'Super Admin' => [
                 'menuItems' => [
-                  
+
                     [
                         'url' => route('driver.index'),
                         'label' => 'Driver',
                         'icon' => asset('src/icons/driver.svg'),
                         'active' => ['driver.index']
-                    ]
+                    ],
+                    [
+                        'url' => route('employee.index'),
+                        'label' => 'employee',
+                        'icon' => asset('src/icons/employee.svg'),
+                        'active' => ['employee.index']
+                    ],
                 ],
                 'color' => 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
             ],
@@ -92,7 +98,7 @@ class Sidebar extends Component
         $this->menuItems = $menus[$userRole]['menuItems'] ?? [];
         $this->color = $menus[$userRole]['color'] ?? 'default';
 
-       
+
     }
 
 

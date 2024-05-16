@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->boolean('status_pakai');
             $table->string('service_terakhir');
             $table->string('service_berikutnya');
-            $table->string('penempatan');
+              $table->enum('penempatan',['cabang','utama']);
             $table->string('tanggal_pakai');
             $table->timestamps();
             $table->softDeletes();

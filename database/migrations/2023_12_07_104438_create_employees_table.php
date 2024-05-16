@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->uuid('id')->primary()->unique();
             $table->string('id_pegawai')->unique();
             $table->string('nama_pegawai');
-            $table->string('penempatan');
+            $table->enum('penempatan',['cabang','utama']);
             $table->enum('jabatan', ['Manajer', 'Supervisor', 'Staff']);
             $table->timestamps();
             $table->softDeletes();
