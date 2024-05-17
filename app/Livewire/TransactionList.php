@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Transaction;
+use Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -12,12 +13,32 @@ class TransactionList extends Component
     public $search = '';
     protected $queryString = ['search'];
     protected $paginationTheme = 'tailwind';
- 
+
     public function render()
     {
-        $transaction = Transaction::where('id_pegawai', 'like', '%' . $this->search . '%')->paginate(7);
-       
-        
+        $authRole = Auth::user()->role;
+        $query = Transaction::query();
+
+        if ($authRole == 'Admin' || $authRole == 'Super Admin') {
+
+            $transaction = $query->where('id_pegawai', 'like', '%' . $this->search . '%')->paginate(7);
+        } elseif ($authRole == 'Pool') {
+
+            $transaction = $query->whereIn('tahap', ['waiting', 'firstACC', 'firstReject'])
+                ->where('id_pegawai', 'like', '%' . $this->search . '%')->paginate(7);
+        } elseif ($authRole == 'Kepala Kantor') {
+
+            $transaction = $query->whereIn('tahap', ['secondReject', 'secondACC', 'firstACC'])
+                ->where('id_pegawai', 'like', '%' . $this->search . '%')->paginate(7);
+        } else {
+
+            $transaction = null;
+        }
+
+
+
+
+
         return view('livewire.transaction-list', [
             'transaction' => $transaction
         ]);

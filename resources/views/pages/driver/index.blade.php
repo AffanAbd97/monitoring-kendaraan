@@ -42,6 +42,4 @@
 </x-app-layout>
 
 
-@section('title')
-    Data Obat | Poliklinik
-@endsection
+ 

@@ -33,25 +33,39 @@ if (!function_exists('getStatusBadge')) {
                 'badgeClass' => 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'
             ],
             'firstReject' => [
-                'message' => 'Perizinan Ditolak Oleh...',
+                'message' => 'Perizinan Ditolak Oleh Kepala',
                 'badgeClass' => 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
             ],
             'secondReject' => [
-                'message' => 'Perizinan Ditolak Oleh...',
+                'message' => 'Perizinan Ditolak Oleh Pool',
                 'badgeClass' => 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300'
             ]
         ];
 
-        // Check if the status exists in the defined statuses
+
         if (array_key_exists($status, $statusMessages)) {
             $message = $statusMessages[$status]['message'];
             $badgeClass = $statusMessages[$status]['badgeClass'];
 
-            // Return the formatted HTML string
+
             return "<span class=\"$badgeClass text-xs font-medium me-2 px-2.5 py-0.5 rounded\">$message</span>";
         } else {
-            // Optional: handle unexpected status
+
             return "<span class=\"bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300\">Status tidak dikenal</span>";
+        }
+    }
+}
+if (!function_exists('getShortBadge')) {
+    function getShortBadge($status)
+    {
+        if ($status == 'waiting') {
+            return '<span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Approal Head</span>';
+        } else if ($status == 'firstACC') {
+            return '<span class="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Approal Pool</span>';
+        } else if ($status == 'secondACC') {
+            return '<span class="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Approved</span>';
+        } else if ($status == 'firstReject' || $status == 'secondReject') {
+            return '<span class="bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded">Rejected</span>';
         }
     }
 }

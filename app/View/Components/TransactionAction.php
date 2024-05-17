@@ -10,11 +10,13 @@ class TransactionAction extends Component
 {
     public $roles;
     public $status;
+    public $id;
 
-    public function __construct($status=null)
+    public function __construct($status=null,$id)
     {
         $this->roles = Auth::user()->role;
         $this->status = $status;
+        $this->id = $id;
     }
 
     /**

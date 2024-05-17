@@ -30,7 +30,7 @@ class Sidebar extends Component
                     [
                         'url' => route('employee.index'),
                         'label' => 'Pegawai',
-                        'icon' =>"fa-solid fa-clipboard-user",
+                        'icon' => "fa-solid fa-clipboard-user",
                         'active' => ['employee.index']
                     ],
                     [
@@ -39,62 +39,109 @@ class Sidebar extends Component
                         'icon' => "fa-solid fa-car",
                         'active' => ['car.index']
                     ],
+                    [
+                        'url' => route('transaction.index'),
+                        'label' => 'Permintaan',
+                        'icon' => "fa-solid fa-book",
+                        'active' => ['transaction.index']
+                    ],
+                    [
+                        'url' => route('log.index'),
+                        'label' => 'Log Aktivitas',
+                        'icon' => "fa-solid fa-clock-rotate-left",
+                        'active' => ['log.index']
+                    ],
                 ],
                 'color' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
             ],
             'Admin' => [
                 'menuItems' => [
+
                     [
-                        'url' => 'dept.index',
-                        'label' => 'Departement',
-                        'icon' => asset('src/icons/dept.svg'),
-                        'active' => ['dept.index']
-                    ],
-                    [
-                        'url' => 'driver.index',
+                        'url' => route('driver.index'),
                         'label' => 'Driver',
-                        'icon' => asset('src/icons/driver.svg'),
+                        'icon' => "fa-solid fa-id-card",
                         'active' => ['driver.index']
                     ],
                     [
-                        'url' => 'office.index',
-                        'label' => 'Office',
-                        'icon' => asset('src/icons/office.svg'),
-                        'active' => ['office.index']
+                        'url' => route('employee.index'),
+                        'label' => 'Pegawai',
+                        'icon' => "fa-solid fa-clipboard-user",
+                        'active' => ['employee.index']
                     ],
                     [
-                        'url' => 'pool.index',
-                        'label' => 'Pool',
-                        'icon' => asset('src/icons/pool.svg'),
-                        'active' => ['pool.index']
+                        'url' => route('car.index'),
+                        'label' => 'Kendaraan',
+                        'icon' => "fa-solid fa-car",
+                        'active' => ['car.index']
+                    ],
+                    [
+                        'url' => route('transaction.index'),
+                        'label' => 'Permintaan',
+                        'icon' => "fa-solid fa-book",
+                        'active' => ['transaction.index']
+                    ],
+                    [
+                        'url' => route('log.index'),
+                        'label' => 'Log Aktivitas',
+                        'icon' => "fa-solid fa-clock-rotate-left",
+                        'active' => ['log.index']
                     ],
                 ],
                 'color' => 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300'
             ],
             'Head' => [
                 'menuItems' => [
+
+
                     [
-                        'url' => 'dept.index',
-                        'label' => 'Departement',
-                        'icon' => asset('src/icons/dept.svg'),
-                        'active' => ['dept.index']
+                        'url' => route('employee.index'),
+                        'label' => 'Pegawai',
+                        'icon' => "fa-solid fa-clipboard-user",
+                        'active' => ['employee.index']
+                    ],
+
+                    [
+                        'url' => route('transaction.index'),
+                        'label' => 'Permintaan',
+                        'icon' => "fa-solid fa-book",
+                        'active' => ['transaction.index']
                     ],
                     [
-                        'url' => 'office.index',
-                        'label' => 'Office',
-                        'icon' => asset('src/icons/office.svg'),
-                        'active' => ['office.index']
+                        'url' => route('log.index'),
+                        'label' => 'Log Aktivitas',
+                        'icon' => "fa-solid fa-clock-rotate-left",
+                        'active' => ['log.index']
                     ],
                 ],
                 'color' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
             ],
             'Pool' => [
                 'menuItems' => [
+
                     [
-                        'url' => 'pool.index',
-                        'label' => 'Pool',
-                        'icon' => asset('src/icons/pool.svg'),
-                        'active' => ['pool.index']
+                        'url' => route('transaction.index'),
+                        'label' => 'Permintaan',
+                        'icon' => "fa-solid fa-book",
+                        'active' => ['transaction.index']
+                    ],
+                    [
+                        'url' => route('car.index'),
+                        'label' => 'Kendaraan',
+                        'icon' => "fa-solid fa-car",
+                        'active' => ['car.index']
+                    ],
+                    [
+                        'url' => route('driver.index'),
+                        'label' => 'Driver',
+                        'icon' => "fa-solid fa-id-card",
+                        'active' => ['driver.index']
+                    ],
+                    [
+                        'url' => route('log.index'),
+                        'label' => 'Log Aktivitas',
+                        'icon' => "fa-solid fa-clock-rotate-left",
+                        'active' => ['log.index']
                     ],
                 ],
                 'color' => 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300'

@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
             $table->text('aktivitas');
+            $table->string('actor');
             $table->timestamps();
             $table->softDeletes();
         });

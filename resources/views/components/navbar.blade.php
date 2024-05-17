@@ -20,8 +20,8 @@
                 <span class="sr-only">Toggle sidebar</span>
             </button>
             <a href="\" class="flex items-center justify-between mr-4">
-                <i class="fa-solid fa-hospital text-2xl text-green-700 me-2"></i>
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Poliklinik</span>
+                <i class="fa-solid fa-helmet-safety text-2xl text-green-700 me-2"></i>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Monitorin</span>
             </a>
 
         </div>
@@ -52,10 +52,8 @@
             <div class="hidden z-50 my-4 w-56 text-base list-none bg-white rounded divide-y divide-gray-100 shadow  rounded-xl"
                 id="dropdown">
                 <div class="py-3 px-4">
-                    <span
-                        class="block text-sm font-semibold text-gray-900 ">{{ auth()->user()->name }}</span>
-                    <span
-                        class="block text-sm text-gray-900 truncate ">{{ auth()->user()->email }}</span>
+                    <span class="block text-sm font-semibold text-gray-900 ">{{ auth()->user()->name }}</span>
+                    <span class="block text-sm text-gray-900 truncate ">{{ auth()->user()->email }}</span>
                 </div>
 
 

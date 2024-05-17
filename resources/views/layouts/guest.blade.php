@@ -32,7 +32,7 @@
        
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
             <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                <i class="fa-solid fa-hospital text-2xl text-green-700 me-2"></i>
+                <i class="fa-solid fa-helmet-safety text-2xl text-green-700 me-2"></i>
                 Monitoring Kendaraan
             </a>
             <div
