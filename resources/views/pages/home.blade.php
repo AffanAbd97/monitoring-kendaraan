@@ -1,6 +1,5 @@
-@extends('layout')
-@section('content')
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-@endsection
+<x-app-layout>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
+</x-app-layout>

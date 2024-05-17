@@ -36,7 +36,7 @@ class CarFactory extends Factory
         $no_pol = 'K ' . $this->faker->randomNumber(4) . ' ' . $this->faker->randomLetter() . $this->faker->randomLetter();
 
         $carStatus = $this->faker->randomElement([1, 0]);
-        $tanggalPakai = $carStatus == 1 ? 'Kendaraan sedang dipginakan' : $this->faker->dateTimeBetween('-1 month', 'now');
+        $tanggalPakai = $carStatus == 1 ? 'Kendaraan sedang digunakan' : $this->faker->dateTimeBetween('-1 month', 'now');
 
         $lastSer = $this->faker->dateTimeBetween('-4 month', 'now');
         $nextSer = $this->faker->dateTimeBetween($lastSer, '+1 years');

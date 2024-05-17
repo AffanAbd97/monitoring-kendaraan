@@ -17,6 +17,9 @@ Route::prefix('dashboard')->middleware(['auth', 'role:Super Admin,Admin'])->grou
     Route::get('/employee', function () {
         return view('pages.employee.index');
     })->name('employee.index');
+    Route::get('/car', function () {
+        return view('pages.car.index');
+    })->name('car.index');
 });
 Route::get('/dashboard', function () {
 

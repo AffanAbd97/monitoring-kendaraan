@@ -1,5 +1,5 @@
 <aside
-    class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+    class="fixed top-0 left-0 z-40 w-80 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
     aria-label="Sidenav" id="drawer-navigation">
     <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800 dark:border-gray-700">
 
@@ -16,7 +16,7 @@
             @endphp --}}
 
             <li>
-                <a href={#}
+                <a href={{{route('dashboard')}}}
                     class="{{ menuActive([]) }}  flex items-center p-2  text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
                     <svg aria-hidden="true"
                         class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "
@@ -30,15 +30,16 @@
      @foreach ($menuItems as $item)
 <li>
         <a href="{{ $item['url'] }}"
-            class=" {{ menuActive( $item['active']) }} flex items-center justify-between p-2 text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
+            class=" {{ menuActive($item['active']) }} flex items-center justify-between p-2 text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
 
             <div class="flex items-center justify-start">
                 <i
-                    class="fa-solid fa-user-nurse text-2xl text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "></i>
-                <span class="ml-3">{{$item['label']}}</span>
+                    class="{{ $item['icon'] }} text-2xl text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "></i>
+                <span class="ml-3 text-md">{{ $item['label'] }}</span>
             </div>
-            <span
-                class=" {{ $color }} text-sm font-medium   px-2.5 py-0.5 rounded ">{{$role}}</span>
+            <span class="text-xs font-medium  bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300 px-2.5 py-0.5 rounded"
+           
+               >{{ $role }}</span>
         </a>
     </li>
 @endforeach

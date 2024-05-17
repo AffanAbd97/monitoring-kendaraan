@@ -24,17 +24,23 @@ class Sidebar extends Component
                     [
                         'url' => route('driver.index'),
                         'label' => 'Driver',
-                        'icon' => asset('src/icons/driver.svg'),
+                        'icon' => "fa-solid fa-id-card",
                         'active' => ['driver.index']
                     ],
                     [
                         'url' => route('employee.index'),
-                        'label' => 'employee',
-                        'icon' => asset('src/icons/employee.svg'),
+                        'label' => 'Pegawai',
+                        'icon' =>"fa-solid fa-clipboard-user",
                         'active' => ['employee.index']
                     ],
+                    [
+                        'url' => route('car.index'),
+                        'label' => 'Kendaraan',
+                        'icon' => "fa-solid fa-car",
+                        'active' => ['car.index']
+                    ],
                 ],
-                'color' => 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
+                'color' => 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
             ],
             'Admin' => [
                 'menuItems' => [

@@ -28,7 +28,7 @@
 
         <x-sidebar />
 
-        <main class="pt-20 px-4 bg-slate-50 dark:bg-gray-900 min-h-screen ml-0 md:ml-64 ">
+        <main class="pt-20 px-4 bg-slate-50 dark:bg-gray-900 min-h-screen ml-0 md:ml-80 ">
 
             {{$slot}}
         </main>
