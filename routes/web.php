@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,7 @@ Route::prefix('dashboard')->middleware(['auth', 'role:Super Admin,Admin'])->grou
     Route::get('/car', function () {
         return view('pages.car.index');
     })->name('car.index');
+    Route::get('/transaction', [TransactionController::class, 'index'])->name('transaction.index');
 });
 Route::get('/dashboard', function () {
 
