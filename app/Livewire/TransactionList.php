@@ -11,8 +11,13 @@ class TransactionList extends Component
 {
     use WithPagination;
     public $search = '';
+    public $type = 'all';
     protected $queryString = ['search'];
     protected $paginationTheme = 'tailwind';
+    public function mount($type = 'all')
+    {
+        $this->type = $type;
+    }
 
     public function render()
     {
@@ -40,7 +45,8 @@ class TransactionList extends Component
 
 
         return view('livewire.transaction-list', [
-            'transaction' => $transaction
+            'transaction' => $transaction,
+            'type'=>$this->type,
         ]);
     }
 }

@@ -1,62 +1,101 @@
-<x-app-layout>
+<x-app-layout >
     <section class="md:grid-cols-3 grid grid-cols-1 justify-between items-center mb-8 gap-4">
-        <div class="w-full p-2 ">
-            <div
-                class="flex flex-row gap-6 items-center px-6 py-10 overflow-hidden bg-white rounded-xl shadow-lg duration-300 group dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex flex-row justify-between items-center">
-                    <div class="px-4 py-4 bg-gray-300  rounded-xl bg-opacity-30">
-                        <i class="fa-solid fa-user-doctor text-2xl dark:text-white"></i>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <h1 class="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 dark:text-gray-300">
-                      0</h1>
-                    <div class="flex flex-row justify-between dark:text-gray-500">
-                        <p>Total Dokter</p>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full p-2 ">
-            <div
-                class="flex flex-row gap-6 items-center px-6 py-10 overflow-hidden bg-white rounded-xl shadow-lg duration-300 group dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex flex-row justify-between items-center">
-                    <div class="px-4 py-4 bg-gray-300  rounded-xl bg-opacity-30">
-                        <i class="fa-solid fa-hospital-user text-2xl dark:text-white"></i>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <h1 class="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 dark:text-gray-300">
-                        0</h1>
-                    <div class="flex flex-row justify-between dark:text-gray-500">
-                        <p>Total Pasien</p>
 
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full p-2 ">
-            <div
-                class="flex flex-row gap-6 items-center px-6 py-10 overflow-hidden bg-white rounded-xl shadow-lg duration-300 group dark:bg-gray-800 dark:border-gray-700">
-                <div class="flex flex-row justify-between items-center">
-                    <div class="px-4 py-4 bg-gray-300  rounded-xl bg-opacity-30">
-                        <i class="fa-solid fa-pills text-2xl dark:text-white"></i>
-                    </div>
-                </div>
-                <div class="flex flex-col">
-                    <h1 class="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 dark:text-gray-300">
-                       0</h1>
-                    <div class="flex flex-row justify-between dark:text-gray-500">
-                        <p>Total Obat</p>
+        <x-home-card :type="'pegawai'" />
+        <x-home-card :type="'current'" />
+        <x-home-card :type="'driver'" />
+        
 
-                    </div>
-                </div>
-            </div>
+
+
+    </section>
+    <section class="md:grid-cols-8 grid grid-cols-1 justify-between items-center mb-8 gap-4">
+        <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6 col-span-6 h-full">
+            @livewire('transaction-list', ['type' => 'home'])
         </div>
+
+        <x-car-active />
+
 
 
 
 
     </section>
 </x-app-layout>
+
+@push('script')
+    <script>
+        const options = {
+            chart: {
+                height: "100%",
+                maxWidth: "100%",
+                type: "area",
+                fontFamily: "Inter, sans-serif",
+                dropShadow: {
+                    enabled: false,
+                },
+                toolbar: {
+                    show: false,
+                },
+            },
+            tooltip: {
+                enabled: true,
+                x: {
+                    show: false,
+                },
+            },
+            fill: {
+                type: "gradient",
+                gradient: {
+                    opacityFrom: 0.55,
+                    opacityTo: 0,
+                    shade: "#1C64F2",
+                    gradientToColors: ["#1C64F2"],
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                width: 6,
+            },
+            grid: {
+                show: false,
+                strokeDashArray: 4,
+                padding: {
+                    left: 2,
+                    right: 2,
+                    top: 0
+                },
+            },
+            series: [{
+                name: "New users",
+                data: [6500, 6418, 6456, 6526, 6356, 6456],
+                color: "#1A56DB",
+            }, ],
+            xaxis: {
+                categories: ['01 February', '02 February', '03 February', '04 February', '05 February', '06 February',
+                    '07 February'
+                ],
+                labels: {
+                    show: false,
+                },
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                },
+            },
+            yaxis: {
+                show: false,
+            },
+        }
+
+        if (document.getElementById("area-chart") && typeof ApexCharts !== 'undefined') {
+            const chart = new ApexCharts(document.getElementById("area-chart"), options);
+            chart.render();
+        }
+    </script>
+@endpush

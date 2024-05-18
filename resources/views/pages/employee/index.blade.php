@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout :title="'Daftar Pegawai'">
 
     <section class="md:flex grid grid-cols-1 justify-between items-center mb-8 gap-4">
         <div>
