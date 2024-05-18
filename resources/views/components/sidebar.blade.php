@@ -4,20 +4,11 @@
     <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800 dark:border-gray-700">
 
         <ul class="space-y-2">
-            {{-- @php
-                if (session('authenticate') && session('authenticate')->peran == 'Admin') {
-                    $route = route('admin.home');
-                } elseif (session('authenticate') && session('authenticate')->peran == 'Dokter') {
-                    $route = route('dokter.home');
-                } else {
-                    $route = route('pasien.home');
-                }
-                
-            @endphp --}}
+        
 
             <li>
                 <a href={{{route('dashboard')}}}
-                    class="{{ menuActive([]) }}  flex items-center p-2  text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
+                    class="{{ menuActive(['dashboard']) }}  flex items-center p-2  text-base font-medium text-gray-900 rounded-lg  hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700 group">
                     <svg aria-hidden="true"
                         class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 dark:group-hover:text-white group-hover:text-gray-900 "
                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">

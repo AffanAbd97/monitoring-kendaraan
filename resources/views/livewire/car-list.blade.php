@@ -54,11 +54,12 @@
                         <td class="px-4 py-3">{{ $item->plat_nomor }}</td>
                         <td class="px-4 py-3">{{ $item->jumlah_bbm }}</td>
                         <td class="px-4 py-3">{{ $item->konsumsi_bbm }}</td>
-                        <td class="px-4 py-3">{{ $item->status_kendaraan }}</td>
-                        <td class="px-4 py-3">{{ $item->status_pakai }}</td>
-                        <td class="px-4 py-3">{{ $item->service_terakhir }}</td>
-                        <td class="px-4 py-3">{{ $item->service_berikutnya }}</td>
-                        <td class="px-4 py-3">{{ $item->penempatan }}</td>
+                        <td class="px-4 py-3">{{ $item->status_kendaraan == 1 ? 'Hak Milik' : 'Sewa' }}</td>
+                        <td class="px-4 py-3">
+                            {{ $item->status_pakai == 1 ? 'Kendaraan Sedang Dipakai' : 'Kendaraan Belum Dipakai' }}</td>
+                        <td class="px-4 py-3">{{ formatDate($item->service_terakhir) }}</td>
+                        <td class="px-4 py-3">{{ formatDate($item->service_berikutnya) }}</td>
+                        <td class="px-4 py-3">{{ getOfficeType($item->penempatan) }}</td>
                         <td class="px-4 py-3">{{ $item->tanggal_pakai }}</td>
 
 

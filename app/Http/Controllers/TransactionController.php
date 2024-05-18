@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransactionExport;
 use App\Models\Logs;
 use App\Models\Transaction;
 use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Facades\Excel;
+use Str;
 
 class TransactionController extends Controller
 {
@@ -35,6 +39,7 @@ class TransactionController extends Controller
         }
         $trans->save();
         $this->createLog($actor, $trans->id_pegawai, $trans->employee->nama_pegawai, $request->status);
+        flash()->option('position', 'bottom-right')->success('Izin Diberikan');
         return redirect()->back();
 
     }
@@ -55,5 +60,37 @@ class TransactionController extends Controller
         $log->save();
     }
 
+    public function export()
+    {
+        return Excel::download(new TransactionExport, 'users.xlsx');
+    }
 
+    public function createTrans(Request $request)
+    {
+        $validated = Validator::make($request->all(), [
+            'id_pegawai' => 'required|exists:employees,id_pegawai',
+            'tambang' => 'required',
+            'driver' => 'required',
+            'kendaraan' => 'required',
+        ]);
+        if ($validated->fails()) {
+            flash()->option('position', 'bottom-right')->error('Data Gagal Tersimpan');
+
+            return redirect()
+                ->back()
+                ->withErrors($validated)
+                ->withInput();
+
+        }
+ 
+        $trans = new Transaction();
+        $trans->id = Str::uuid();
+        $trans->id_pegawai = $request->id_pegawai;
+        $trans->id_kendaraan = $request->kendaraan;
+        $trans->id_driver = $request->driver;
+        $trans->tujuan_tambang = $request->tambang;
+        $trans->save();
+        flash()->option('position', 'bottom-right')->success('Data Tersimpan');
+        return redirect()->back();
+    }
 }

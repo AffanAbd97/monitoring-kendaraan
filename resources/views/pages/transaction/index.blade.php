@@ -38,8 +38,6 @@
     </section>
 
     @livewire('transaction-list')
-
+  
 </x-app-layout>
 
-
- 
