@@ -20,8 +20,8 @@ class accountSeeder extends Seeder
     {
         User::create([
            
-            'name' => 'Developer',
-            'email' => 'dev@dev.com',
+            'name' => 'Super Admin',
+            'email' => 'super@gmail.com',
             'password' =>Hash::make('12345678'),
             'role' => 'Super Admin',
         ]);
@@ -37,7 +37,7 @@ class accountSeeder extends Seeder
         User::create([
            
             'name' => 'Kepala',
-            'email' => 'kepalaKantor@gmail.com',
+            'email' => 'head@gmail.com',
             'password' => Hash::make('12345678'),
             'role' => "Kepala Kantor",
         ]);
