@@ -1,7 +1,6 @@
 ## Note
 
--
--   **Database Version : MySQL8.0.30**
+-   **Database Version : MySQL 8.0.30**
 -   **PHP Version : 8.2.4**
 -   **Laravel Framework 11.7.0**
 
